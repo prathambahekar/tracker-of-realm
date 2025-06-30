@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Windows Usage Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Top Bar -->
+    <nav class="topbar">
+      <div class="logo">
+        🖥️ <span>Usage Tracker</span>
+      </div>
+      <div class="tab-group">
+        <button class="tab active" data-tab="overview">Overview</button>
+        <button class="tab" data-tab="apps">Apps</button>
+        <button class="tab" data-tab="internet">Internet</button>
+        <button class="tab" data-tab="history">History</button>
+        <button class="tab" data-tab="system">System</button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard">
+      <!-- Overview -->
+      <div class="tab-content" id="overview" style="display: block;">
+        <section class="summary">
+          <div class="card">
+            <h2>Total Screen Time</h2>
+            <p>6h 32m</p>
+          </div>
+          <div class="card">
+            <h2>Most Used App</h2>
+            <p>Chrome</p>
+          </div>
+          <div class="card">
+            <h2>Top Website</h2>
+            <p>YouTube</p>
+          </div>
+        </section>
+
+        <section class="charts">
+          <div class="chart-card">
+            <h3>App Usage Distribution</h3>
+            <canvas id="appPieChart"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Usage Over Time</h3>
+            <canvas id="lineChart"></canvas>
+          </div>
+        </section>
+      </div>
+
+      <!-- Apps -->
+      <div class="tab-content" id="apps" style="display: none;">
+        <p class="coming-soon">Coming soon: App details.</p>
+      </div>
+
+      <!-- Internet -->
+      <div class="tab-content" id="internet" style="display: none;">
+        <p class="coming-soon">Coming soon: Internet usage.</p>
+      </div>
+
+      <!-- History -->
+      <div class="tab-content" id="history" style="display: none;">
+        <p class="coming-soon">Coming soon: Usage history.</p>
+      </div>
+
+      <!-- System -->
+      <div class="tab-content" id="system" style="display: none;">
+        <section class="system">
+          <h2>System Stats</h2>
+          <div class="system-cards">
+            <div class="sys-card cpu"><h4>CPU Usage</h4><p id="cpu-usage">--%</p></div>
+            <div class="sys-card ram"><h4>RAM Usage</h4><p id="ram-usage">-- GB / -- GB</p></div>
+            <div class="sys-card gpu"><h4>GPU Usage</h4><p id="gpu-usage">--%</p></div>
+            <div class="sys-card battery"><h4>Battery</h4><p id="battery-usage">--% (--)</p></div>
+            <div class="sys-card disk"><h4>Disk Usage</h4><p id="disk-usage">-- GB / -- GB</p></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        contents.forEach(c => c.style.display = c.id === tab.dataset.tab ? 'block' : 'none');
+      });
+    });
+
+    const pieCtx = document.getElementById('appPieChart').getContext('2d');
+    new Chart(pieCtx, {
+      type: 'pie',
+      data: {
+        labels: ['Chrome', 'VS Code', 'Spotify'],
+        datasets: [{
+          data: [4, 2, 1],
+          backgroundColor: ['#03dac6', '#bb86fc', '#ff9800']
+        }]
+      },
+      options: {
+        plugins: {
+          legend: { labels: { color: '#e0e0e0' } }
+        }
+      }
+    });
+
+    const lineCtx = document.getElementById('lineChart').getContext('2d');
+    new Chart(lineCtx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        datasets: [{
+          label: 'Hours Used',
+          data: [3, 4.5, 2, 5, 6],
+          borderColor: '#03dac6',
+          backgroundColor: '#03dac6',
+          tension: 0.3
+        }]
+      },
+      options: {
+        scales: {
+          x: { ticks: { color: '#ccc' }, grid: { color: '#333' }},
+          y: { ticks: { color: '#ccc' }, grid: { color: '#333' }}
+        },
+        plugins: {
+          legend: { labels: { color: '#e0e0e0' } }
+        }
+      }
+    });
+
+    async function fetchSystemStats() {
+      try {
+        const res = await fetch('http://127.0.0.1:5000/api/system');
+        const data = await res.json();
+        document.getElementById('cpu-usage').textContent = data.cpu + '%';
+        document.getElementById('ram-usage').textContent = data.ram.used + ' GB / ' + data.ram.total + ' GB';
+        document.getElementById('gpu-usage').textContent = (data.gpu !== null ? data.gpu.toFixed(1) : '--') + '%';
+        document.getElementById('battery-usage').textContent =
+          (data.battery.percent !== null ? data.battery.percent + '%' : '--%') +
+          ' (' + (data.battery.plugged === true ? 'Plugged In' : (data.battery.plugged === false ? 'On Battery' : '--')) + ')';
+        document.getElementById('disk-usage').textContent = data.disk.used + ' GB / ' + data.disk.total + ' GB';
+      } catch (e) {}
+    }
+
+    function startSystemStatsPolling() {
+      let interval = null;
+      function checkTab() {
+        const systemTab = document.getElementById('system');
+        if (systemTab.style.display === 'block') {
+          if (!interval) {
+            fetchSystemStats();
+            interval = setInterval(fetchSystemStats, 5000);
+          }
+        } else {
+          if (interval) {
+            clearInterval(interval);
+            interval = null;
+          }
+        }
+      }
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', checkTab);
+      });
+      checkTab();
+    }
+
+    window.addEventListener('DOMContentLoaded', startSystemStatsPolling);
+  </script>
+</body>
+</html>
