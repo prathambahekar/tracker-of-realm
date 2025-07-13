@@ -114,411 +114,273 @@
               <div class="text-lg font-semibold text-gray-900">July 13, 2025</div>
             </div>
             <button onclick="toggleTheme()" class="bg-black hover:bg-gray-800 text-white p-3 rounded-lg transition-colors">
-              <span class="text-lg">🌙</-Chartsbutton>
-            </div>
+              <span class="text-lg">🌙</span>
+            </button>
           </div>
-        </header>
+        </div>
+      </header>
 
-        <!-- Content Area -->
-        <div class="flex-1 overflow-y-auto p-6 bg-gray-100">
-          <!-- Dashboard Tab Content -->
-          <div id="dashboard" class="tab-content active">
-            <!-- Overview Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div class="metric-card card-hover p-6 rounded-xl">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <h3 class="text-lg font-semibold text-gray-700">Unlock Count</h3>
-                    <p class="text-4xl font-bold text-gray-900 mt-2">12</p>
-                    <p class="text-sm text-gray-500 mt-1">Today</p>
-                  </div>
-                  <div class="text-4xl opacity-80">🔓</div>
+      <!-- Content Area -->
+      <div class="flex-1 overflow-y-auto p-6 bg-gray-100">
+        <!-- Dashboard Tab Content -->
+        <div id="dashboard" class="tab-content active">
+          <!-- Overview Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="metric-card card-hover p-6 rounded-xl">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-700">Unlock Count</h3>
+                  <p class="text-4xl font-bold text-gray-900 mt-2">12</p>
+                  <p class="text-sm text-gray-500 mt-1">Today</p>
                 </div>
-              </div>
-              
-              <div class="metric-card card-hover p-6 rounded-xl">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <h3 class="text-lg font-semibold text-gray-700">Active Time</h3>
-                    <p class="text-4xl font-bold text-gray-900 mt-2">5h 23m</p>
-                    <p class="text-sm text-gray-500 mt-1">Today</p>
-                  </div>
-                  <div class="text-4xl opacity-80">🕒</div>
-                </div>
-              </div>
-              
-              <div class="metric-card card-hover p-6 rounded-xl">
-                <div class="flex items-center justify-between">
-                  <div>
-                    <h3 class="text-lg font-semibold text-gray-700">Data Used</h3>
-                    <p class="text-4xl font-bold text-gray-900 mt-2">2.3 GB</p>
-                    <p class="text-sm text-gray-500 mt-1">Today</p>
-                  </div>
-                  <div class="text-4xl opacity-80">📶</div>
-                </div>
+                <div class="text-4xl opacity-80">🔓</div>
               </div>
             </div>
-
-            <!-- Charts -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
-                <div class="flex items-center justify-between mb-4">
-                  <h3 class="text-xl font-semibold text-gray-900">App Usage</h3>
-                  <span class="text-2xl">📊</span>
+            
+            <div class="metric-card card-hover p-6 rounded-xl">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-700">Active Time</h3>
+                  <p class="text-4xl font-bold text-gray-900 mt-2">5h 23m</p>
+                  <p class="text-sm text-gray-500 mt-1">Today</p>
                 </div>
-                <div class="h-80 w-full">
-                  <canvas id="appUsageChart"></canvas>
-                </div>
-              </div>
-              
-              <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
-                <div class="flex items-center justify-between mb-4">
-                  <h3 class="text-xl font-semibold text-gray-900">Internet Usage per App</h3>
-                  <span class="text-2xl">🌐</span>
-                </div>
-                <div class="h-80 w-full">
-                  <canvas id="internetChart"></canvas>
-                </div>
+                <div class="text-4xl opacity-80">🕒</div>
               </div>
             </div>
-
-            <!-- Additional Stats -->
-            <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div class="bg-white p-4 rounded-lg border border-gray-200">
-                <div class="text-sm text-gray-500">CPU Usage</div>
-                <div class="text-2xl font-bold text-gray-900">24%</div>
-              </div>
-              <div class="bg-white p-4 rounded-lg border border-gray-200">
-                <div class="text-sm text-gray-500">Memory Usage</div>
-                <div class="text-2xl font-bold text-gray-900">67%</div>
-              </div>
-              <div class="bg-white p-4 rounded-lg border border-gray-200">
-                <div class="text-sm text-gray-500">Disk Usage</div>
-                <div class="text-2xl font-bold text-gray-900">45%</div>
-              </div>
-              <div class="bg-white p-4 rounded-lg border border-gray-200">
-                <div class="text-sm text-gray-500">Network Speed</div>
-                <div class="text-2xl font-bold text-gray-900">52 Mbps</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- System Usage Tab Content -->
-          <div id="system-usage" class="tab-content">
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">System Usage Overview</h3>
-              <p class="text-gray-600 mb-4">Detailed metrics on CPU, memory, disk, and system performance.</p>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="p-4 bg-gray-50 rounded-lg">
-                  <h4 class="text-lg font-semibold text-gray-700">CPU Details</h4>
-                  <p class="text-sm text-gray-500">Current Usage: 24%</p>
-                  <p class="text-sm text-gray-500">Cores: 8</p>
-                  <p class="text-sm text-gray-500">Frequency: 3.2 GHz</p>
+            
+            <div class="metric-card card-hover p-6 rounded-xl">
+              <div class="flex items-center justify-between">
+                <div>
+                  <h3 class="text-lg font-semibold text-gray-700">Data Used</h3>
+                  <p class="text-4xl font-bold text-gray-900 mt-2">2.3 GB</p>
+                  <p class="text-sm text-gray-500 mt-1">Today</p>
                 </div>
-                <div class="p-4 bg-gray-50 rounded-lg">
-                  <h4 class="text-lg font-semibold text-gray-700">Memory Details</h4>
-                  <p class="text-sm text-gray-500">Total: 16 GB</p>
-                  <p class="text-sm text-gray-500">Used: 10.7 GB</p>
-                  <p class="text-sm text-gray-500">Free: 5.3 GB</p>
-                </div>
+                <div class="text-4xl opacity-80">📶</div>
               </div>
-            </div>
-          </div>
-
-          <!-- App Usage Tab Content -->
-          <div id="app-usage" class="tab-content">
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">Application Usage</h3>
-              <p class="text-gray-600 mb-4">Track time spent on applications today.</p>
-              <ul class="space-y-2">
-                <li class="flex justify-between p-2 bg-gray-50 rounded-lg">
-                  <span>Chrome</span>
-                  <span>120 minutes</span>
-                </li>
-                <li class="flex justify-between p-2 bg-gray-50 rounded-lg">
-                  <span>VS Code</span>
-                  <span>95 minutes</span>
-                </li>
-                <li class="flex justify-between p-2 bg-gray-50 rounded-lg">
-                  <span>Spotify</span>
-                  <span>60 minutes</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Internet Tab Content -->
-          <div id="internet" class="tab-content">
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">Internet Usage</h3>
-              <p class="text-gray-600 mb-4">Monitor data usage across applications.</p>
-              <ul class="space-y-2">
-                <li class="flex justify-between p-2 bg-gray-50 rounded-lg">
-                  <span>Chrome</span>
-                  <span>1.5 GB</span>
-                </li>
-                <li class="flex justify-between p-2 bg-gray-50 rounded-lg">
-                  <span>Spotify</span>
-                  <span>0.5 GB</span>
-                </li>
-                <li class="flex justify-between p-2 bg-gray-50 rounded-lg">
-                  <span>Steam</span>
-                  <span>0.3 GB</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Reports Tab Content -->
-          <div id="reports" class="tab-content">
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">Reports</h3>
-              <p class="text-gray-600 mb-4">Generate and view usage reports.</p>
-              <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
-                Generate Report
-              </button>
-            </div>
-          </div>
-
-          <!-- Smart Suggestions Tab Content -->
-          <div id="smart-suggestions" class="tab-content">
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">Smart Suggestions</h3>
-              <p class="text-gray-600 mb-4">AI-driven recommendations to optimize system usage.</p>
-              <ul class="space-y-2">
-                <li class="p-2 bg-gray-50 rounded-lg">Close unused applications to free up memory.</li>
-                <li class="p-2 bg-gray-50 rounded-lg">Schedule disk cleanup to improve performance.</li>
-                <li class="p-2 bg-gray-50 rounded-lg">Limit background data for high-usage apps.</li>
-              </ul>
             </div>
           </div>
         </div>
-      </main>
-    </div>
 
-    <!-- Chart.js CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script>
-      // Theme toggle functionality
-      function toggleTheme() {
-        const html = document.documentElement;
-        html.classList.toggle('dark');
-        
-        // Update charts with new theme if they exist
-        if (typeof appUsageChart !== 'undefined' && typeof internetChart !== 'undefined') {
-          updateChartThemes();
+        <!-- System Usage Tab Content -->
+        <div id="system-usage" class="tab-content">
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">System Usage Overview</h3>
+            <p class="text-gray-600 mb-4">Detailed metrics on CPU, memory, disk, and system performance.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <h4 class="text-lg font-semibold text-gray-700">CPU Details</h4>
+                <p class="text-sm text-gray-500">Current Usage: 24%</p>
+                <p class="text-sm text-gray-500">Cores: 8</p>
+                <p class="text-sm text-gray-500">Frequency: 3.2 GHz</p>
+              </div>
+              <div class="p-4 bg-gray-50 rounded-lg">
+                <h4 class="text-lg font-semibold text-gray-700">Memory Details</h4>
+                <p class="text-sm text-gray-500">Total: 16 GB</p>
+                <p class="text-sm text-gray-500">Used: 10.7 GB</p>
+                <p class="text-sm text-gray-500">Free: 5.3 GB</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- App Usage Tab Content -->
+        <div id="app-usage" class="tab-content">
+          <div id="app-usage-content">
+            <!-- Content will be loaded dynamically -->
+          </div>
+        </div>
+
+        <!-- Internet Tab Content -->
+        <div id="internet" class="tab-content">
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Internet Usage</h3>
+            <p class="text-gray-600 mb-4">Monitor data usage across applications.</p>
+            <ul class="space-y-2">
+              <li class="flex justify-between p-2 bg-gray-50 rounded-lg">
+                <span>Chrome</span>
+                <span>1.5 GB</span>
+              </li>
+              <li class="flex justify-between p-2 bg-gray-50 rounded-lg">
+                <span>Spotify</span>
+                <span>0.5 GB</span>
+              </li>
+              <li class="flex justify-between p-2 bg-gray-50 rounded-lg">
+                <span>Steam</span>
+                <span>0.3 GB</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Reports Tab Content -->
+        <div id="reports" class="tab-content">
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Reports</h3>
+            <p class="text-gray-600 mb-4">Generate and view usage reports.</p>
+            <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors">
+              Generate Report
+            </button>
+          </div>
+        </div>
+
+        <!-- Smart Suggestions Tab Content -->
+        <div id="smart-suggestions" class="tab-content">
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
+            <h3 class="text-xl font-semibold text-gray-900 mb-4">Smart Suggestions</h3>
+            <p class="text-gray-600 mb-4">AI-driven recommendations to optimize system usage.</p>
+            <ul class="space-y-2">
+              <li class="p-2 bg-gray-50 rounded-lg">Close unused applications to free up memory.</li>
+              <li class="p-2 bg-gray-50 rounded-lg">Schedule disk cleanup to improve performance.</li>
+              <li class="p-2 bg-gray-50 rounded-lg">Limit background data for high-usage apps.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <script>
+    // Theme toggle functionality
+    function toggleTheme() {
+      const html = document.documentElement;
+      html.classList.toggle('dark');
+    }
+
+    // Tab switching functionality
+    function initTabs() {
+      const navItems = document.querySelectorAll('.nav-item');
+      const tabContents = document.querySelectorAll('.tab-content');
+      const headerTitle = document.getElementById('header-title');
+      const headerSubtitle = document.getElementById('header-subtitle');
+
+      const tabConfig = {
+        'dashboard': {
+          title: 'Dashboard',
+          subtitle: 'Monitor your Windows system usage'
+        },
+        'system-usage': {
+          title: 'System Usage',
+          subtitle: 'Detailed system performance metrics'
+        },
+        'app-usage': {
+          title: 'App Usage',
+          subtitle: 'Track application usage patterns'
+        },
+        'internet': {
+          title: 'Internet',
+          subtitle: 'Monitor data usage across applications'
+        },
+        'reports': {
+          title: 'Reports',
+          subtitle: 'Generate and view usage reports'
+        },
+        'smart-suggestions': {
+          title: 'Smart Suggestions',
+          subtitle: 'AI-driven recommendations for optimization'
         }
-      }
+      };
 
-      // Chart theme configuration
-      function getChartTheme() {
-        const isDark = document.documentElement.classList.contains('dark');
-        return {
-          textColor: isDark ? '#e5e7eb' : '#000000',
-          gridColor: isDark ? '#374151' : '#e5e7eb',
-          backgroundColor: isDark ? '#111827' : '#ffffff'
-        };
-      }
+      navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const tabId = item.getAttribute('data-tab');
 
-      // Initialize charts
-      let appUsageChart, internetChart;
+          // Update active nav item
+          navItems.forEach(nav => nav.classList.remove('active', 'text-white'));
+          item.classList.add('active', 'text-white');
 
-      function initCharts() {
-        // Check if Chart.js is loaded
-        if (typeof Chart === 'undefined') {
-          console.error('Chart.js is not loaded');
-          return;
-        }
+          // Update tab content
+          tabContents.forEach(content => content.classList.remove('active'));
+          const activeTab = document.getElementById(tabId);
+          if (activeTab) {
+            activeTab.classList.add('active');
 
-        const theme = getChartTheme();
+            // Load app-usage content dynamically
+            if (tabId === 'app-usage') {
+              const appUsageContent = document.getElementById('app-usage-content');
+              fetch('app-usage.html')
+                .then(response => response.text())
+                .then(html => {
+                  appUsageContent.innerHTML = html;
 
-        // App Usage Chart
-        const ctx1 = document.getElementById('appUsageChart');
-        if (ctx1) {
-          appUsageChart = new Chart(ctx1, {
-            type: 'bar',
-            data: {
-              labels: ['Chrome', 'VS Code', 'Spotify', 'Zoom', 'Teams', 'Excel'],
-              datasets: [{
-                label: 'Time (minutes)',
-                data: [120, 95, 60, 30, 45, 25],
-                backgroundColor: '#000000',
-                borderColor: '#333333',
-                borderWidth: 1,
-                borderRadius: 8
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  display: false
-                }
-              },
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  ticks: {
-                    color: theme.textColor
-                  },
-                  grid: {
-                    color: theme.gridColor
+                  // Initialize Chart.js with updated styling
+                  const ctx = appUsageContent.querySelector('#usageChart')?.getContext('2d');
+                  if (ctx && typeof Chart !== 'undefined') {
+                    const chart = new Chart(ctx, {
+                      type: 'bar',
+                      data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                          label: 'Usage (hours)',
+                          data: [2, 3, 2.5, 2.8, 3.2, 2.9, 3.25],
+                          backgroundColor: '#000000',
+                          borderColor: '#000000',
+                          borderWidth: 1,
+                          borderRadius: 4
+                        }]
+                      },
+                      options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                          y: {
+                            beginAtZero: true,
+                            max: 10,
+                            ticks: { color: '#000000' },
+                            grid: { color: '#d1d1d1' }
+                          },
+                          x: {
+                            ticks: { color: '#000000' },
+                            grid: { color: '#d1d1d1' }
+                          }
+                        },
+                        plugins: {
+                          legend: { display: false }
+                        }
+                      }
+                    });
+
+                    // Initialize tab-switching logic for daily/weekly/monthly
+                    const tabs = appUsageContent.querySelectorAll('.tab');
+                    tabs.forEach(tab => {
+                      tab.addEventListener('click', function() {
+                        tabs.forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        const view = this.getAttribute('data-view');
+                        if (view === 'weekly') {
+                          chart.data.labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
+                          chart.data.datasets[0].data = [12, 15, 14, 13];
+                        } else if (view === 'monthly') {
+                          chart.data.labels = ['Jan', 'Feb', 'Mar', 'Apr'];
+                          chart.data.datasets[0].data = [60, 65, 70, 55];
+                        } else {
+                          chart.data.labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                          chart.data.datasets[0].data = [2, 3, 2.5, 2.8, 3.2, 2.9, 3.25];
+                        }
+                        chart.update();
+                      });
+                    });
                   }
-                },
-                x: {
-                  ticks: {
-                    color: theme.textColor
-                  },
-                  grid: {
-                    color: theme.gridColor
-                  }
-                }
-              }
+                })
+                .catch(error => console.error('Error loading app-usage.html:', error));
             }
-          });
-        }
-
-        // Internet Usage Chart
-        const ctx2 = document.getElementById('internetChart');
-        if (ctx2) {
-          internetChart = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-              labels: ['Chrome', 'Spotify', 'Steam', 'Teams', 'Discord'],
-              datasets: [{
-                label: 'Data (GB)',
-                data: [1.5, 0.5, 0.3, 0.4, 0.2],
-                backgroundColor: '#000000',
-                borderColor: '#333333',
-                borderWidth: 1,
-                borderRadius: 8
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: {
-                legend: {
-                  display: false
-                }
-              },
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  ticks: {
-                    color: theme.textColor,
-                    callback: function(value) {
-                      return value + ' GB';
-                    }
-                  },
-                  grid: {
-                    color: theme.gridColor
-                  }
-                },
-                x: {
-                  ticks: {
-                    color: theme.textColor
-                  },
-                  grid: {
-                    color: theme.gridColor
-                  }
-                }
-              }
-            }
-          });
-        }
-      }
-
-      function updateChartThemes() {
-        const theme = getChartTheme();
-        
-        // Update app usage chart
-        if (appUsageChart) {
-          appUsageChart.options.scales.y.ticks.color = theme.textColor;
-          appUsageChart.options.scales.y.grid.color = theme.gridColor;
-          appUsageChart.options.scales.x.ticks.color = theme.textColor;
-          appUsageChart.options.scales.x.grid.color = theme.gridColor;
-          appUsageChart.update();
-        }
-        
-        // Update internet chart
-        if (internetChart) {
-          internetChart.options.scales.y.ticks.color = theme.textColor;
-          internetChart.options.scales.y.grid.color = theme.gridColor;
-          internetChart.options.scales.x.ticks.color = theme.textColor;
-          internetChart.options.scales.x.grid.color = theme.gridColor;
-          internetChart.update();
-        }
-      }
-
-      // Tab switching functionality
-      function initTabs() {
-        const navItems = document.querySelectorAll('.nav-item');
-        const tabContents = document.querySelectorAll('.tab-content');
-        const headerTitle = document.getElementById('header-title');
-        const headerSubtitle = document.getElementById('header-subtitle');
-
-        const tabConfig = {
-          'dashboard': {
-            title: 'Dashboard',
-            subtitle: 'Monitor your Windows system usage'
-          },
-          'system-usage': {
-            title: 'System Usage',
-            subtitle: 'Detailed system performance metrics'
-          },
-          'app-usage': {
-            title: 'App Usage',
-            subtitle: 'Track application usage patterns'
-          },
-          'internet': {
-            title: 'Internet',
-            subtitle: 'Monitor data usage across applications'
-          },
-          'reports': {
-            title: 'Reports',
-            subtitle: 'Generate and view usage reports'
-          },
-          'smart-suggestions': {
-            title: 'Smart Suggestions',
-            subtitle: 'AI-driven recommendations for optimization'
           }
-        };
 
-        navItems.forEach(item => {
-          item.addEventListener('click', (e) => {
-            e.preventDefault();
-            const tabId = item.getAttribute('data-tab');
-
-            // Update active nav item
-            navItems.forEach(nav => nav.classList.remove('active', 'text-white'));
-            item.classList.add('active', 'text-white');
-
-            // Update tab content
-            tabContents.forEach(content => content.classList.remove('active'));
-            const activeTab = document.getElementById(tabId);
-            if (activeTab) {
-              activeTab.classList.add('active');
-            }
-
-            // Update header
-            if (tabConfig[tabId]) {
-              headerTitle.textContent = tabConfig[tabId].title;
-              headerSubtitle.textContent = tabConfig[tabId].subtitle;
-            }
-          });
+          // Update header
+          if (tabConfig[tabId]) {
+            headerTitle.textContent = tabConfig[tabId].title;
+            headerSubtitle.textContent = tabConfig[tabId].subtitle;
+          }
         });
-      }
-
-      // Initialize charts and tabs when DOM is fully loaded
-      document.addEventListener('DOMContentLoaded', function() {
-        // Add a small delay to ensure Chart.js is fully loaded
-        setTimeout(() => {
-          initCharts();
-          initTabs();
-        }, 100);
       });
-    </script>
+    }
+
+    // Initialize tabs when DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      initTabs();
+    });
+  </script>
 </body>
 </html>

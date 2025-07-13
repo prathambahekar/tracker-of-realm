@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App Usage</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <style>
+    body {
+      background-color: #ffffff;
+      color: #000000;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    .chart-container {
+      height: 200px;
+      width: 100%;
+    }
+    .app-item {
+      background-color: #ffffff;
+      border: 1px solid #d1d1d1;
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .category-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+    }
+    .tab {
+      cursor: pointer;
+      padding: 8px 16px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s;
+      color: #000000;
+    }
+    .tab.active {
+      border-bottom-color: #000000;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="p-4">
+  <div class="flex justify-center space-x-4 mb-4">
+    <div class="tab active" data-view="daily">Daily</div>
+    <div class="tab" data-view="weekly">Weekly</div>
+    <div class="tab" data-view="monthly">Monthly</div>
+  </div>
+  <h2 class="text-xl font-bold mb-4">App Usage - Today, Sun, 13 Jul 2025</h2>
+  <div class="chart-container">
+    <canvas id="usageChart"></canvas>
+  </div>
+  <div class="mt-4">
+    <p class="text-lg font-semibold">Total: 3h 15m</p>
+    <div class="flex space-x-4 mt-2">
+      <span class="flex items-center"><span class="category-dot" style="background-color: #ff4500"></span> Distracting: 2h 38m</span>
+      <span class="flex items-center"><span class="category-dot" style="background-color: #32cd32"></span> Productive: 26m</span>
+      <span class="flex items-center"><span class="category-dot" style="background-color: #808080"></span> Others: 10m</span>
+    </div>
+  </div>
+  <div class="mt-4">
+    <input type="text" placeholder="Search apps" class="w-full p-2 bg-gray-200 text-gray-800 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-gray-500" />
+    <div class="app-item flex justify-between items-center">
+      <div class="flex items-center">
+        <span class="text-2xl mr-2">📸</span>
+        <div>
+          <p class="font-semibold">Instagram</p>
+          <span class="text-orange-500">Distracting</span>
+        </div>
+      </div>
+      <span>1h 45m</span>
+    </div>
+    <div class="app-item flex justify-between items-center">
+      <div class="flex items-center">
+        <span class="text-2xl mr-2">🎥</span>
+        <div>
+          <p class="font-semibold">YouTube</p>
+          <span class="text-lime-500">Productive 0m</span>
+        </div>
+      </div>
+      <span>27m</span>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const ctx = document.getElementById('usageChart').getContext('2d');
+      const chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          datasets: [{
+            label: 'Usage (hours)',
+            data: [2, 3, 2.5, 2.8, 3.2, 2.9, 3.25],
+            backgroundColor: '#000000',
+            borderColor: '#000000',
+            borderWidth: 1,
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+              max: 10,
+              ticks: { color: '#000000' },
+              grid: { color: '#d1d1d1' }
+            },
+            x: {
+              ticks: { color: '#000000' },
+              grid: { color: '#d1d1d1' }
+            }
+          },
+          plugins: {
+            legend: { display: false }
+          }
+        }
+      });
+
+      // Tab switching logic
+      const tabs = document.querySelectorAll('.tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          tabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          const view = this.getAttribute('data-view');
+          if (view === 'weekly') {
+            chart.data.labels = ['Week 1', 'Week 2', 'Week 3', 'Week 4'];
+            chart.data.datasets[0].data = [12, 15, 14, 13];
+          } else if (view === 'monthly') {
+            chart.data.labels = ['Jan', 'Feb', 'Mar', 'Apr'];
+            chart.data.datasets[0].data = [60, 65, 70, 55];
+          } else {
+            chart.data.labels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+            chart.data.datasets[0].data = [2, 3, 2.5, 2.8, 3.2, 2.9, 3.25];
+          }
+          chart.update();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
