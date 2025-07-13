@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,15 +12,11 @@
       font-family: 'Inter', sans-serif;
     }
     
+    /* Glass effect for light theme */
     .glass-effect {
       backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    
-    .dark .glass-effect {
-      background: rgba(0, 0, 0, 0.3);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
     
     .nav-item {
@@ -28,8 +24,13 @@
     }
     
     .nav-item:hover {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.1);
       transform: translateX(4px);
+    }
+    
+    .nav-item.active {
+      background: #000000;
+      color: #ffffff;
     }
     
     .card-hover {
@@ -38,58 +39,53 @@
     
     .card-hover:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
     
     .metric-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    
-    .dark .metric-card {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.1) 100%);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen">
+<body class="bg-gray-100 text-gray-900 min-h-screen">
   <div class="flex h-screen">
     <!-- Sidebar -->
-    <aside class="w-72 bg-white dark:bg-gray-900 shadow-2xl flex flex-col border-r border-gray-200 dark:border-gray-800">
-      <div class="p-6 border-b border-gray-200 dark:border-gray-800">
-        <h1 class="text-2xl font-bold text-gray-900 dark:text-white">Tracker of Realm</h1>
-        <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Windows</p>
+    <aside class="w-72 bg-white shadow-2xl flex flex-col border-r border-gray-200">
+      <div class="p-6 border-b border-gray-200">
+        <h1 class="text-2xl font-bold text-gray-900">Tracker of Realm</h1>
+        <p class="text-sm text-gray-500 mt-1">Windows</p>
       </div>
       
       <nav class="flex-1 p-4 space-y-2">
-        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white">
+        <a href="#" class="nav-item active flex items-center space-x-3 p-3 rounded-lg text-white">
           <span class="text-lg">📊</span>
           <span class="font-medium">Dashboard</span>
         </a>
-        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:text-black">
           <span class="text-lg">🖥️</span>
           <span class="font-medium">System Usage</span>
         </a>
-        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:text-black">
           <span class="text-lg">📱</span>
           <span class="font-medium">App Usage</span>
         </a>
-        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:text-black">
           <span class="text-lg">🌐</span>
           <span class="font-medium">Internet</span>
         </a>
-        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:text-black">
           <span class="text-lg">📈</span>
           <span class="font-medium">Reports</span>
         </a>
-        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white">
+        <a href="#" class="nav-item flex items-center space-x-3 p-3 rounded-lg text-gray-600 hover:text-black">
           <span class="text-lg">🧠</span>
           <span class="font-medium">Smart Suggestions</span>
         </a>
       </nav>
       
-      <div class="p-4 border-t border-gray-200 dark:border-gray-800">
-        <div class="text-xs text-gray-500 dark:text-gray-400 text-center">
+      <div class="p-4 border-t border-gray-200">
+        <div class="text-xs text-gray-500 text-center">
           Last updated: 2 mins ago
         </div>
       </div>
@@ -98,18 +94,18 @@
     <!-- Main content -->
     <main class="flex-1 flex flex-col overflow-hidden">
       <!-- Topbar -->
-      <header class="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800 p-6">
+      <header class="bg-white shadow-sm border-b border-gray-200 p-6">
         <div class="flex justify-between items-center">
           <div>
-            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Dashboard</h2>
-            <p class="text-gray-600 dark:text-gray-400 mt-1">Monitor your Windows system usage</p>
+            <h2 class="text-3xl font-bold text-gray-900">Dashboard</h2>
+            <p class="text-gray-600 mt-1">Monitor your Windows system usage</p>
           </div>
           <div class="flex items-center space-x-4">
             <div class="text-right">
-              <div class="text-sm text-gray-500 dark:text-gray-400">Today</div>
-              <div class="text-lg font-semibold text-gray-900 dark:text-white">July 13, 2025</div>
+              <div class="text-sm text-gray-500">Today</div>
+              <div class="text-lg font-semibold text-gray-900">July 13, 2025</div>
             </div>
-            <button onclick="toggleTheme()" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors">
+            <button onclick="toggleTheme()" class="bg-black hover:bg-gray-800 text-white p-3 rounded-lg transition-colors">
               <span class="text-lg">🌙</span>
             </button>
           </div>
@@ -117,15 +113,15 @@
       </header>
 
       <!-- Content Area -->
-      <div class="flex-1 overflow-y-auto p-6 bg-gray-50 dark:bg-gray-950">
+      <div class="flex-1 overflow-y-auto p-6 bg-gray-100">
         <!-- Overview Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div class="metric-card card-hover p-6 rounded-xl">
             <div class="flex items-center justify-between">
               <div>
-                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Unlock Count</h3>
-                <p class="text-4xl font-bold text-gray-900 dark:text-white mt-2">12</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Today</p>
+                <h3 class="text-lg font-semibold text-gray-700">Unlock Count</h3>
+                <p class="text-4xl font-bold text-gray-900 mt-2">12</p>
+                <p class="text-sm text-gray-500 mt-1">Today</p>
               </div>
               <div class="text-4xl opacity-80">🔓</div>
             </div>
@@ -134,9 +130,9 @@
           <div class="metric-card card-hover p-6 rounded-xl">
             <div class="flex items-center justify-between">
               <div>
-                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Active Time</h3>
-                <p class="text-4xl font-bold text-gray-900 dark:text-white mt-2">5h 23m</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Today</p>
+                <h3 class="text-lg font-semibold text-gray-700">Active Time</h3>
+                <p class="text-4xl font-bold text-gray-900 mt-2">5h 23m</p>
+                <p class="text-sm text-gray-500 mt-1">Today</p>
               </div>
               <div class="text-4xl opacity-80">🕒</div>
             </div>
@@ -145,9 +141,9 @@
           <div class="metric-card card-hover p-6 rounded-xl">
             <div class="flex items-center justify-between">
               <div>
-                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">Data Used</h3>
-                <p class="text-4xl font-bold text-gray-900 dark:text-white mt-2">2.3 GB</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Today</p>
+                <h3 class="text-lg font-semibold text-gray-700">Data Used</h3>
+                <p class="text-4xl font-bold text-gray-900 mt-2">2.3 GB</p>
+                <p class="text-sm text-gray-500 mt-1">Today</p>
               </div>
               <div class="text-4xl opacity-80">📶</div>
             </div>
@@ -156,9 +152,9 @@
 
         <!-- Charts -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 card-hover">
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">App Usage</h3>
+              <h3 class="text-xl font-semibold text-gray-900">App Usage</h3>
               <span class="text-2xl">📊</span>
             </div>
             <div class="h-80 w-full">
@@ -166,9 +162,9 @@
             </div>
           </div>
           
-          <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-800 card-hover">
+          <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 card-hover">
             <div class="flex items-center justify-between mb-4">
-              <h3 class="text-xl font-semibold text-gray-900 dark:text-white">Internet Usage per App</h3>
+              <h3 class="text-xl font-semibold text-gray-900">Internet Usage per App</h3>
               <span class="text-2xl">🌐</span>
             </div>
             <div class="h-80 w-full">
@@ -179,21 +175,21 @@
 
         <!-- Additional Stats -->
         <div class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
-            <div class="text-sm text-gray-500 dark:text-gray-400">CPU Usage</div>
-            <div class="text-2xl font-bold text-gray-900 dark:text-white">24%</div>
+          <div class="bg-white p-4 rounded-lg border border-gray-200">
+            <div class="text-sm text-gray-500">CPU Usage</div>
+            <div class="text-2xl font-bold text-gray-900">24%</div>
           </div>
-          <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
-            <div class="text-sm text-gray-500 dark:text-gray-400">Memory Usage</div>
-            <div class="text-2xl font-bold text-gray-900 dark:text-white">67%</div>
+          <div class="bg-white p-4 rounded-lg border border-gray-200">
+            <div class="text-sm text-gray-500">Memory Usage</div>
+            <div class="text-2xl font-bold text-gray-900">67%</div>
           </div>
-          <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
-            <div class="text-sm text-gray-500 dark:text-gray-400">Disk Usage</div>
-            <div class="text-2xl font-bold text-gray-900 dark:text-white">45%</div>
+          <div class="bg-white p-4 rounded-lg border border-gray-200">
+            <div class="text-sm text-gray-500">Disk Usage</div>
+            <div class="text-2xl font-bold text-gray-900">45%</div>
           </div>
-          <div class="bg-white dark:bg-gray-900 p-4 rounded-lg border border-gray-200 dark:border-gray-800">
-            <div class="text-sm text-gray-500 dark:text-gray-400">Network Speed</div>
-            <div class="text-2xl font-bold text-gray-900 dark:text-white">52 Mbps</div>
+          <div class="bg-white p-4 rounded-lg border border-gray-200">
+            <div class="text-sm text-gray-500">Network Speed</div>
+            <div class="text-2xl font-bold text-gray-900">52 Mbps</div>
           </div>
         </div>
       </div>
@@ -218,7 +214,7 @@
     function getChartTheme() {
       const isDark = document.documentElement.classList.contains('dark');
       return {
-        textColor: isDark ? '#e5e7eb' : '#374151',
+        textColor: isDark ? '#e5e7eb' : '#000000',
         gridColor: isDark ? '#374151' : '#e5e7eb',
         backgroundColor: isDark ? '#111827' : '#ffffff'
       };
@@ -246,13 +242,10 @@
             datasets: [{
               label: 'Time (minutes)',
               data: [120, 95, 60, 30, 45, 25],
-              backgroundColor: [
-                '#1f2937', '#374151', '#4b5563', '#6b7280', '#9ca3af', '#d1d5db'
-              ],
-              borderColor: [
-                '#111827', '#1f2937', '#374151', '#4b5563', '#6b7280', '#9ca3af'
-              ],
-              borderWidth: 1
+              backgroundColor: '#000000',
+              borderColor: '#333333',
+              borderWidth: 1,
+              borderRadius: 8
             }]
           },
           options: {
@@ -286,7 +279,7 @@
         });
       }
 
-      // Internet Usage Chart (Bar instead of Pie)
+      // Internet Usage Chart
       const ctx2 = document.getElementById('internetChart');
       if (ctx2) {
         internetChart = new Chart(ctx2, {
@@ -296,13 +289,10 @@
             datasets: [{
               label: 'Data (GB)',
               data: [1.5, 0.5, 0.3, 0.4, 0.2],
-              backgroundColor: [
-                '#1f2937', '#374151', '#4b5563', '#6b7280', '#9ca3af'
-              ],
-              borderColor: [
-                '#111827', '#1f2937', '#374151', '#4b5563', '#6b7280'
-              ],
-              borderWidth: 1
+              backgroundColor: '#000000',
+              borderColor: '#333333',
+              borderWidth: 1,
+              borderRadius: 8
             }]
           },
           options: {
