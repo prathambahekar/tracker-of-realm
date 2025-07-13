@@ -4,7 +4,7 @@ A smart, privacy-respecting productivity and digital wellbeing app for Windows t
 
 ---
 
-## 📌 Features
+## 📌 Features to be added
 
 ### 🖥️ System Usage Monitoring
 
