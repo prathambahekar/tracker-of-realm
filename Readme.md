@@ -101,15 +101,6 @@ A smart, privacy-respecting productivity and digital wellbeing app for Windows t
 
 ---
 
-## 📦 Coming Soon
-
-- Windows startup integration
-- Auto-save crash-safe sessions
-- Multi-user support
-- Sync with cloud or mobile apps
-
----
-
 ## 📃 License
 
 MIT License — feel free to use and modify as needed.
