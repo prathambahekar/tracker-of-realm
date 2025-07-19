@@ -85,7 +85,7 @@ export function Layout({ children }: LayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col justify-center items-start">
+    <div className="min-h-screen bg-background text-foreground flex">
       {/* Mobile sidebar overlay */}
       {isSidebarOpen && (
         <div
