@@ -13,6 +13,7 @@ import Apps from "./pages/Apps";
 import Data from "./pages/Data";
 import Analytics from "./pages/Analytics";
 import Tracker from "./pages/Tracker";
+import Settings from "./pages/Settings";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
