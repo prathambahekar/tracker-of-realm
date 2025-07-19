@@ -85,7 +85,7 @@ export function Layout({ children }: LayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col justify-center items-start">
+    <div className="min-h-screen bg-background text-foreground flex">
       {/* Mobile sidebar overlay */}
       {isSidebarOpen && (
         <div
@@ -96,7 +96,7 @@ export function Layout({ children }: LayoutProps) {
 
       {/* Sidebar */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-sidebar transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0 ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-sidebar transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:w-64 lg:flex-shrink-0 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -176,7 +176,7 @@ export function Layout({ children }: LayoutProps) {
       </div>
 
       {/* Main content */}
-      <div className="lg:pl-64">
+      <div className="flex-1 min-w-0">
         {/* Top navigation */}
         <header className="bg-card border-b border-border">
           <div className="flex h-16 items-center justify-between px-6">
