@@ -176,7 +176,7 @@ export function Layout({ children }: LayoutProps) {
       </div>
 
       {/* Main content */}
-      <div className="flex-1 lg:pl-64">
+      <div className="flex-1 min-w-0">
         {/* Top navigation */}
         <header className="bg-card border-b border-border">
           <div className="flex h-16 items-center justify-between px-6">
