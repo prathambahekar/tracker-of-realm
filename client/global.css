@@ -119,4 +119,37 @@
     font-feature-settings: "cv11", "ss01";
     font-variation-settings: "opsz" 32;
   }
+
+  /* Custom slider styles */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: rgb(var(--primary));
+    cursor: pointer;
+    border: 2px solid rgb(var(--background));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .slider::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: rgb(var(--primary));
+    cursor: pointer;
+    border: 2px solid rgb(var(--background));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .slider::-webkit-slider-track {
+    background: rgb(var(--accent));
+    border-radius: 4px;
+  }
+
+  .slider::-moz-range-track {
+    background: rgb(var(--accent));
+    border-radius: 4px;
+  }
 }
