@@ -183,15 +183,15 @@ export function Layout({ children }: LayoutProps) {
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => setIsSidebarOpen(true)}
-                className="p-2 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent lg:hidden"
+                className="p-2 rounded-lg text-sidebar-foreground hover:text-sidebar-accent-foreground hover:bg-sidebar-accent lg:hidden"
               >
                 <Menu className="h-6 w-6" />
               </button>
               <div>
-                <h2 className="text-lg font-semibold text-foreground">
+                <h2 className="text-lg font-semibold text-sidebar-foreground">
                   Usage Analytics Dashboard
                 </h2>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-sidebar-foreground/60">
                   Monitor system performance and app usage
                 </p>
               </div>
