@@ -11,13 +11,13 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    --background: 8 8 8;
+    --background: 0 0 0;
     --foreground: 245 245 245;
 
-    --card: 16 16 16;
+    --card: 5 5 5;
     --card-foreground: 245 245 245;
 
-    --popover: 16 16 16;
+    --popover: 5 5 5;
     --popover-foreground: 245 245 245;
 
     --primary: 245 245 245;
