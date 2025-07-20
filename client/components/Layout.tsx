@@ -200,7 +200,7 @@ export function Layout({ children }: LayoutProps) {
             <div className="flex items-center space-x-4">
               <button
                 onClick={toggleTheme}
-                className="p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110 hover:bg-accent rounded-lg"
+                className="p-2 text-sidebar-foreground hover:text-sidebar-accent-foreground transition-all duration-200 hover:scale-110 hover:bg-sidebar-accent rounded-lg"
                 title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               >
                 {theme === "dark" ? (
@@ -209,19 +209,21 @@ export function Layout({ children }: LayoutProps) {
                   <Moon className="h-5 w-5" />
                 )}
               </button>
-              <button className="relative p-2 text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110 hover:bg-accent rounded-lg">
+              <button className="relative p-2 text-sidebar-foreground hover:text-sidebar-accent-foreground transition-all duration-200 hover:scale-110 hover:bg-sidebar-accent rounded-lg">
                 <Bell className="h-5 w-5" />
                 <span className="absolute -top-1 -right-1 h-3 w-3 bg-destructive rounded-full animate-pulse"></span>
               </button>
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
-                  <span className="text-sm font-medium text-accent-foreground">
+                <div className="w-8 h-8 bg-sidebar-accent rounded-full flex items-center justify-center">
+                  <span className="text-sm font-medium text-sidebar-accent-foreground">
                     A
                   </span>
                 </div>
                 <div className="hidden sm:block">
-                  <p className="text-sm font-medium text-foreground">Admin</p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm font-medium text-sidebar-foreground">
+                    Admin
+                  </p>
+                  <p className="text-xs text-sidebar-foreground/60">
                     Microsoft Corp.
                   </p>
                 </div>
